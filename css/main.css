@@ -11,9 +11,12 @@
 /* 00 css variable */
 :root {
 	--body-color: hsl(300, 20%, 60%);
-	--page-color: hsla(250, 20%, 60%, 0.6);
+	--page-color: hsla(250, 20%, 60%, 1);
 	--sidebar-color: hsla(150, 20%, 60%, 0.6);
 	--header-color: hsla(300, 20%, 100%, 0.2);
+	--page-width: 60%;
+	--page-top: 85vh;
+	--bottom-bar-height: 80vh;
 }
 
 /* 01 color */
@@ -23,13 +26,6 @@ body {
 
 #zen-intro {
 	background-color: var(--page-color);
-	padding: 20px;
-	padding-top: 5px;
-	margin: 10px;
-	border-radius: 20px;
-	border-width: 2px;
-	border-style: solid;
-	border-color: #000000;
 }
 
 .sidebar {
@@ -37,15 +33,82 @@ body {
 }
 
 h1 {
-	padding: 5px;
-	margin: 10px;
-	padding-left: 10px;
-	padding-right: 10px;
 
 	background-color: var(--header-color);
 
-	border-radius: 10px;
-	border-width: 2px;
-	border-style: solid;
-	border-color: #000000;
+}
+
+/* Layout */
+div.explanation,
+div.requirements,
+div.benefits,
+div.participation {
+	position: fixed;
+	width: var(--page-width);
+	top: var(--page-top);
+}
+
+div.explanation {
+	left: 1.5%;
+	top: 50%;
+	width: 30%;
+}
+
+div.requirements {
+	left: 32%;
+	top: 50%;
+	width: 30%;
+}
+
+div.benefits {
+	left: 1.5%;
+	top: 80%;
+	width: 30%;
+}
+
+div.participation {
+	left: 63%;
+	top: 50%;
+	width: 25%;
+}
+
+
+/* side bar */
+.sidebar {
+	position: absolute;
+	top: 20%;
+	right: 0;
+	bottom: 0;
+	width: 10vw;
+}
+
+/* extra 1-4 */
+div.extra2 {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	top: var(--bottom-bar-height);
+	background-color: darkblue;
+	z-index: 6;
+}
+
+div.extra1 {
+	position: fixed;
+	left: 40%;
+	width: 30%;
+	height: 80vh;
+	background-image: url(../img/newspaper2.jpg);
+	color: black;
+}
+
+/* do the introduction layout */
+section.intro {
+	position: fixed;
+	left: 30%;
+	width: 30%;
+	height: 80vh;
+	z-index: 5;
+	background-image: url(../img/newspaper1.jpg);
+	background-size: 120%;
 }
