@@ -10,9 +10,9 @@
 
 /* 00 css variable */
 :root {
-	--body-color: hsl(300, 20%, 60%);
+	--body-color: hsl(280, 10%, 30%);
 	--page-color: hsla(250, 20%, 60%, 1);
-	--sidebar-color: hsla(150, 20%, 60%, 0.6);
+	--sidebar-color: hsla(250, 20%, 60%, 1);
 	--header-color: hsla(300, 20%, 100%, 0.2);
 	--page-width: 60%;
 	--page-top: 85vh;
@@ -28,9 +28,6 @@ body {
 	background-color: var(--page-color);
 }
 
-.sidebar {
-	background-color: var(--sidebar-color);
-}
 
 h1 {
 
@@ -46,50 +43,57 @@ div.participation {
 	position: fixed;
 	width: var(--page-width);
 	top: var(--page-top);
+
+	background-color: var(--page-color);
+	border: 3px solid black;
 }
 
 div.explanation {
-	left: 1.5%;
-	top: 50%;
+	left: 50%;
+	top: 80%;
 	width: 30%;
 }
 
 div.requirements {
-	left: 32%;
-	top: 50%;
+	left: 18%;
+	top: 80%;
 	width: 30%;
 }
 
 div.benefits {
-	left: 1.5%;
+	left: 2%;
 	top: 80%;
 	width: 30%;
 }
 
 div.participation {
-	left: 63%;
-	top: 50%;
-	width: 25%;
+	left: 34%;
+	top: 80%;
+	width: 30%;
 }
-
 
 /* side bar */
 .sidebar {
+	background-color: var(--sidebar-color);
+	padding: 1%;
 	position: absolute;
-	top: 20%;
+	top: 0%;
 	right: 0;
 	bottom: 0;
 	width: 10vw;
+	border-left: 3px solid black;
 }
+
 
 /* extra 1-4 */
 div.extra2 {
 	position: fixed;
 	left: 0;
 	bottom: 0;
+	border-top: 3px solid black;
 	right: 0;
 	top: var(--bottom-bar-height);
-	background-color: darkblue;
+	background-color: var(--page-color);
 	z-index: 6;
 }
 
@@ -100,6 +104,7 @@ div.extra1 {
 	height: 80vh;
 	background-image: url(../img/newspaper2.jpg);
 	color: black;
+	z-index: -2;
 }
 
 /* do the introduction layout */
@@ -108,7 +113,249 @@ section.intro {
 	left: 30%;
 	width: 30%;
 	height: 80vh;
-	z-index: 5;
+	z-index: -1;
 	background-image: url(../img/newspaper1.jpg);
 	background-size: 120%;
+}
+
+/* file tab */
+div.explanation h3,
+div.requirements h3,
+div.benefits h3,
+div.participation h3 {
+	margin-top: -6%;
+	border: 3px solid black;
+	background-color: var(--page-color);
+	width: 280px;
+	border-bottom-width: 0;
+	padding: 1%;
+}
+
+
+/* typography */
+@font-face {
+	font-family: 'myfont';
+	src: url(../fonts/chunkfive.eot);
+
+}
+
+header h1 {
+	font-family: 'myfont', Arial, Helvetica, sans-serif;
+	font-weight: 100;
+	font-size: 1.5em;
+	letter-spacing: normal;
+	text-transform: uppercase;
+}
+
+header h2 {
+	font-family: 'JetBrains Mono', monospace;
+	text-indent: 5%;
+	font-weight: 900;
+}
+
+a {
+	text-decoration: none;
+}
+
+li,
+ul {
+	list-style-type: none;
+}
+
+#design-selection h3,
+#design-archives,
+#zen-resources {
+	visibility: hidden;
+}
+
+
+
+/* 04 transitions, selector, animation */
+
+/* selector */
+a:hover {
+	color: red;
+}
+
+div.explanation,
+div.requirements,
+div.benefits,
+div.participation {
+	transition: all 0.3s ease-in-out;
+}
+
+div.explanation:active,
+div.requirements:active,
+div.benefits:active,
+div.participation:active {
+	transition: all 0.3s ease-in-out;
+}
+
+div.benefits {
+	z-index: 2;
+}
+
+div.requirements:active {
+	top: 16vh;
+}
+
+div.benefits:active {
+	top: 66vh;
+}
+
+div.participation:active {
+	top: 43vh;
+}
+
+div.explanation:active {
+	top: 52vh;
+}
+
+
+p::first-letter {
+	color: var(--body-color);
+}
+
+h2:nth-child(2n) {
+	color: var(--body-color);
+}
+
+/* text shadow and box shadow */
+
+div.explanation h3,
+div.requirements h3,
+div.benefits h3,
+div.participation h3 {
+	color: white;
+	text-shadow: 2px 2px 2px #000000;
+	box-shadow: 2px 2px 2px #000000;
+	border-radius: 20% 10% 20% 10%;
+	z-index: -50;
+	transition: all 0.3s ease-in-out;
+}
+
+/* border radius */
+
+div.participation h3 {
+	border-radius: 20% 20% 20% 10%;
+}
+
+div.explanation h3 {
+	border-radius: 30% 10% 20% 10%;
+}
+
+div.requirements h3 {
+	border-radius: 20% 20% 20% 10%;
+}
+
+div.benefits h3 {
+	border-radius: 10% 30% 20% 10%;
+}
+
+/* transition transform */
+section.intro.h3~p {
+	text-transform: uppercase;
+	transform: translate(0px, 0px);
+	transition: all 0.3s ease-in-out;
+}
+
+section.intro h3:hover~p {
+	transform: translate(0px, 20px);
+	transition: all 0.3s ease-in-out;
+}
+
+/*
+h2 {
+	background-image: linear-gradient(0deg, grey, white, grey);
+	animation: 1s infinite running changeColor;
+}
+*/
+
+@keyframes changeColor {
+	from {
+		background-image: linear-gradient(90deg, white, grey, white);
+	}
+
+	50% {
+		background-image: linear-gradient(180deg, grey, white, grey);
+	}
+
+	85% {
+		background-image: linear-gradient(270deg, white, grey, white);
+	}
+
+	to {
+		background-image: linear-gradient(0deg, grey, white, grey);
+	}
+}
+
+footer {
+	position: fixed;
+	bottom: 1vh;
+	z-index: 9999;
+	animation: 8s infinite running moveFooter;
+}
+
+@keyframes moveFooter {
+	from {
+		left: 1%;
+	}
+
+	50% {
+		left: 89%;
+	}
+
+	to {
+		left: 1%
+	}
+}
+
+/* grid codepen */
+div {
+	background-color: hsla(200, 50%, 70%, 0.3);
+}
+
+.wrapper {
+	background-color: white;
+	display: grid;
+	grid-template-columns: 100px repeat(2, 1fr) 100px;
+	grid-gap: 20px;
+	grid-auto-rows: minmax(100px, auto);
+}
+
+.one {
+	grid-column: 2/4;
+	grid-row: 2/4;
+}
+
+.two {
+	grid-column: 1/ 4;
+	grid-row: 1/2;
+}
+
+.four {
+	grid-column: 4/ 5;
+	grid-row: 1/3;
+}
+
+.three {
+	grid-column: 1/ 2;
+	grid-row: 2/4;
+
+}
+
+.five {
+	grid-column: 1/ 4;
+	grid-row: 4/4;
+}
+
+.six {
+	grid-column: 3/ 5;
+	grid-row: 3/5;
+}
+
+
+/* fancy stuff */
+aside.sidebar {
+	clip-path: polygon(0 0, 0 60%, 50% 100%, 90% 60%, 90% 0);
 }
